@@ -1,0 +1,87 @@
+[
+  {
+    "date": "2019-10-13",
+    "event": "Wybory parlamentarne w Polsce",
+    "description": "Prawo i Sprawiedliwość wygrywa wybory parlamentarne, utrzymując większość w Sejmie."
+  },
+  {
+    "date": "2020-03-04",
+    "event": "Pierwszy przypadek COVID-19 w Polsce",
+    "description": "Potwierdzono pierwszy przypadek zakażenia koronawirusem SARS-CoV-2."
+  },
+  {
+    "date": "2020-03-16",
+    "event": "Lockdown w Polsce",
+    "description": "Wprowadzenie ścisłych ograniczeń (zamknięcie szkół, granic, instytucji publicznych). Wpływa negatywnie na gospodarkę i poparcie społeczne."
+  },
+  {
+    "date": "2020-04-01",
+    "event": "Obowiązek zasłaniania twarzy w miejscach publicznych",
+    "description": "Wprowadzenie ścisłego obowiązku zasłaniania twarzy w miejscach publicznych"
+  },
+  {
+    "date": "2020-10-24",
+    "event": "Strajk kobiet – protesty po wyroku TK ws. aborcji",
+    "description": "Masowe protesty społeczne mogące wpływać na spadek poparcia dla rządu."
+  },
+  {
+    "date": "2020-11-07",
+    "event": "Szczyt drugiej fali COVID-19",
+    "description": "Najwyższe dobowe liczby zgonów z powodu COVID-19."
+  },
+  {
+    "date": "2021-01-04",
+    "event": "Start masowych szczepień przeciw COVID-19 w Polsce",
+    "description": "Początek programu szczepień."
+  },
+  {
+    "date": "2021-04-01",
+    "event": "III fala pandemii COVID-19",
+    "description": "Wzrost liczby zgonów i hospitalizacji. Duże obciążenie systemu ochrony zdrowia."
+  },
+  {
+    "date": "2021-10-01",
+    "event": "Spadek tempa szczepień i narastająca polaryzacja społeczna",
+    "description": "Nasilenie ruchów antyszczepionkowych, spadek tempa szczepień."
+  },
+  {
+    "date": "2022-02-24",
+    "event": "Wybuch wojny w Ukrainie",
+    "description": "Inwazja Rosji na Ukrainę."
+  },
+  {
+    "date": "2022-03-01",
+    "event": "Napływ uchodźców z Ukrainy",
+    "description": "Setki tysięcy uchodźców trafiają do Polski. Społeczne i ekonomiczne skutki wpływają na rząd i jego odbiór."
+  },
+  {
+    "date": "2022-07-01",
+    "event": "Szczyt inflacji w Polsce",
+    "description": "Rosnąca inflacja osłabia poparcie dla rządu i zagraża stabilności rynku finansowego."
+  },
+  {
+    "date": "2022-12-01",
+    "event": "Kryzys energetyczny – wzrost cen prądu i gazu",
+    "description": "Problemy z energią w Europie wpływają na ceny, nastroje społeczne i decyzje inwestorów."
+  },
+  {
+    "date": "2023-01-01",
+    "event": "Zanikanie pandemii COVID-19",
+    "description": "Zanika społeczna i polityczna rola pandemii. Liczba zgonów i szczepień niska."
+  },
+  {
+    "date": "2023-06-01",
+    "event": "Zamrożenie KPO (brak środków z UE)",
+    "description": "Unia Europejska wstrzymuje środki z Funduszu Odbudowy z powodu problemów z praworządnością"
+  },
+  {
+    "date": "2023-10-15",
+    "event": "Wybory parlamentarne – zmiana władzy",
+    "description": "Zwycięstwo opozycji, zmiana układu sił politycznych."
+  },
+  {
+    "date": "2023-12-13",
+    "event": "Zaprzysiężenie nowego rządu Donalda Tuska",
+    "description": "Zmiana polityczna po 8 latach."
+  }
+]

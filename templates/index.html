@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>COVID & Giełda - Interaktywny wykres</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <header id="login-container">
+        <h2>Logowanie</h2>
+        <input id="username" placeholder="Login" />
+        <input id="password" type="password" placeholder="Hasło" />
+        <button id="loginBtn">Zaloguj się</button>
+        <p id="loginResult"></p>
+    
+      </header>
+  <h2>COVID & Giełda: Wykres</h2>
+
+  <div id="chart"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <div id="events-list" style="max-width: 1800px; margin: 20px auto; font-family: sans-serif;">
+    <h3>Wydarzenia</h3>
+    <ul id="events-ul"></ul>
+  </div>
+  <div class="download-buttons">
+    <a class="download-btn json" href="/api/data.json" download>Pobierz JSON</a>
+    <a class="download-btn xml" href="/api/data.xml" download>Pobierz XML</a>
+    <button id="protectedDownloadBtn" class="download-btn protected">Pobierz chronione dane (JWT)</button>
+  </div>
+  <p id="protectedDownloadResult" style="text-align:center; margin-top:10px; font-weight:600; color:#c0392b;"></p>
+  
+  <script>
+    const loginResult = document.getElementById("loginResult");
+    const protectedDownloadResult = document.getElementById("protectedDownloadResult");
+  
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+  
+      loginResult.style.color = "#c0392b"; // domyślny kolor błędu
+  
+      try {
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+  
+        const data = await res.json();
+  
+        if (res.ok) {
+          localStorage.setItem("access_token", data.access_token);
+          loginResult.textContent = "Zalogowano!";
+          loginResult.style.color = "#27ae60"; // zielony
+        } else {
+          loginResult.textContent = "Błąd: " + data.msg;
+        }
+      } catch (e) {
+        loginResult.textContent = "Błąd sieci";
+      }
+    });
+  
+    document.getElementById("protectedDownloadBtn").addEventListener("click", async () => {
+      protectedDownloadResult.textContent = "";
+      const token = localStorage.getItem("access_token");
+      if (!token) {
+        protectedDownloadResult.style.color = "#c0392b";
+        protectedDownloadResult.textContent = "Nie jesteś zalogowany!";
+        return;
+      }
+  
+      try {
+        const res = await fetch("/api/protected", {
+          headers: { Authorization: "Bearer " + token }
+        });
+  
+        if (res.ok) {
+          const data = await res.json();
+          protectedDownloadResult.style.color = "#27ae60";
+          protectedDownloadResult.textContent = "Pobrano chronione dane! Zobacz konsolę.";
+          console.log("Chronione dane:", data);
+        } else if (res.status === 401) {
+          protectedDownloadResult.style.color = "#c0392b";
+          protectedDownloadResult.textContent = "Brak dostępu: token niepoprawny lub wygasł.";
+        } else {
+          protectedDownloadResult.style.color = "#c0392b";
+          protectedDownloadResult.textContent = "Błąd pobierania: " + res.status;
+        }
+      } catch (e) {
+        protectedDownloadResult.style.color = "#c0392b";
+        protectedDownloadResult.textContent = "Błąd sieci";
+      }
+    });
+  
+    // Możesz wywołać getProtectedData() w razie potrzeby.
+  </script>
+</body>
+</html>
