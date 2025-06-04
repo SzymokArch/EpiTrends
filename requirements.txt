@@ -1,0 +1,4 @@
+flask
+pandas
+sqlalchemy
+flask_jwt_extended
