@@ -45,6 +45,8 @@ docker run -p 5000:5000 epitrends
 1. Utwórz wirtualne środowisko
 ```bash
 virtualenv --python=python3.12 ~/venv/EpiTrends
+```
+```bash
 source ~/venv/EpiTrends/bin/activate
 ```
 2. Zainstaluj zależności
